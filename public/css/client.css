@@ -1,0 +1,745 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;600;700&display=swap');
+
+* {
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --grey: #f4f3fd;
+    --dark-grey: #b6b6b6;
+    --light: #fff;
+    --dark: #000;
+    --light-blue: #DFF2EB;
+    --light-mbleu: #B9E5E8;
+    --lght-hbleu: #7AB2D3;
+    --blue: #4A628A;
+    --red: #F87A53;
+    --green: #73EC8B;
+    --orange: #FF9D3D;
+    --secondary-color: #3f37c9;
+    --button-chart: #858ba3;
+    --primary-color: #4361ee;
+    --background-color: #f8f9fa;
+    --success-color: #4caf50;
+    --warning-color: #ff9800;
+    --danger-color: #f44336;
+}
+
+
+
+
+/* Transactions Section Styles */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+    padding: 24px;
+    margin-top: 20px;
+}
+
+header {
+    margin-bottom: 24px;
+    padding-bottom: 16px;
+    border-bottom: 1px solid #eee;
+}
+
+.btn-add {
+    padding: 9px 15px;
+    border: none;
+    border-radius: 5px;
+    background-color: var(--primary-color);
+    color: white;
+    cursor: pointer;
+    transition: all .3s ease;
+    display: flex;
+    align-items: center;
+    font-size: 14px;
+
+
+}
+
+.btn-add:hover {
+    background-color: var(--blue);
+
+}
+
+.btn-add i {
+    font-size: 16px;
+    margin-right: 3px;
+
+}
+
+h1 {
+    color: #2c3e50;
+    margin: 0;
+    font-size: 24px;
+    font-weight: 600;
+}
+
+/* Section des filtres */
+.filters-section {
+    background: #f8f9fa;
+    padding: 16px;
+    border-radius: 8px;
+    margin-bottom: 24px;
+}
+
+.filter-group {
+    display: flex;
+    gap: 16px;
+    align-items: center;
+}
+
+
+
+
+
+/* Barre de recherche */
+.search-container {
+    position: relative;
+    flex: 1;
+}
+
+.search-wrapper {
+    background-color: white;
+    display: flex;
+    align-items: center;
+    border: 1px solid #e0e4e8;
+    border-radius: 6px;
+    transition: all 0.2s ease;
+}
+
+.search-wrapper:focus-within {
+    border-color: #4a90e2;
+    box-shadow: 0 0 0 3px rgba(74, 144, 226, 0.1);
+}
+
+#searchInput {
+    flex: 1;
+    padding: 10px 16px;
+    border: none;
+    outline: none;
+    font-size: 14px;
+    background: transparent;
+}
+
+.search-button {
+    padding: 10px 16px;
+    background: none;
+    border: none;
+    color: #718096;
+    cursor: pointer;
+    transition: color 0.2s ease;
+}
+
+.search-button:hover {
+    color: #4a90e2;
+}
+
+/* Tableau des transactions */
+.transactions-table {
+    margin: 20px 0;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: left;
+}
+
+/* En-têtes de colonnes */
+th {
+    background-color: #f8f9fa;
+    padding: 15px;
+    font-weight: 600;
+    color: #495057;
+    border-bottom: 2px solid #dee2e6;
+    white-space: nowrap;
+}
+
+/* Alignement spécifique des colonnes */
+th:nth-child(1),
+td:nth-child(1) {
+    /* Référence */
+    text-align: left;
+    padding-left: 16px;
+}
+
+th:nth-child(2),
+td:nth-child(2) {
+    /* Date */
+    text-align: left;
+}
+
+th:nth-child(3),
+td:nth-child(3) {
+    /* Nom */
+    text-align: left;
+}
+
+th:nth-child(4),
+td:nth-child(4) {
+    /* Téléphone */
+    text-align: left;
+}
+
+th:nth-child(5),
+td:nth-child(5) {
+    /* Type */
+    text-align: center;
+}
+
+th:nth-child(6),
+td:nth-child(6) {
+    /* Montant */
+    text-align: right;
+    padding-right: 16px;
+}
+
+th:last-child,
+td:last-child {
+    /* Actions */
+    text-align: center;
+}
+
+/* Cellules du tableau */
+td {
+    padding: 12px 15px;
+    border-bottom: 1px solid #e9ecef;
+    color: #212529;
+    vertical-align: middle;
+}
+
+/* Montant */
+.amount {
+    font-family: 'SF Mono', 'Segoe UI Mono', monospace;
+    color: #2d3748;
+    text-align: right;
+    padding-right: 16px;
+    white-space: nowrap;
+}
+
+/* Badges de type */
+.type-badge {
+    display: inline-flex;
+    align-items: center;
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-size: 0.875rem;
+    font-weight: 500;
+    white-space: nowrap;
+}
+
+.type-badge i {
+    margin-right: 6px;
+}
+
+.type-badge.transfer {
+    background: rgba(25, 135, 84, 0.1);
+    color: #198754;
+}
+
+.type-badge.achat {
+    background: rgba(13, 110, 253, 0.1);
+    color: #0d6efd;
+}
+
+/* Hover sur les lignes */
+tr:hover td {
+    background-color: #f8f9fa;
+}
+
+/* Style pour les montants positifs/négatifs */
+.amount.positive {
+    color: #198754;
+}
+
+.amount.negative {
+    color: #dc3545;
+}
+
+/* Bouton d'action */
+.action-btn {
+    background: none;
+    border: none;
+    color: #6c757d;
+    cursor: pointer;
+    padding: 8px;
+    border-radius: 4px;
+    transition: all 0.2s;
+}
+
+.action-btn:hover {
+    background-color: #e9ecef;
+    color: #343a40;
+}
+
+/*actions icons */
+.action-btn .icon1 {
+    font-size: 16px;
+}
+
+.action-btn .icon1:hover {
+    color: var(--secondary-color);
+}
+
+.action-btn .icon2 {
+    font-size: 16px;
+}
+
+.action-btn .icon2:hover {
+    color: var(--success-color);
+}
+
+
+.action-btn .icon3 {
+    font-size: 16px;
+}
+
+.action-btn .icon3:hover {
+    color: var(--danger-color);
+}
+
+/*actions icons */
+
+/* Pagination */
+.pagination-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 20px;
+    padding: 10px;
+    background: #f8f9fa;
+    border-radius: 0 0 8px 8px;
+    border-top: 1px solid #e9ecef;
+}
+
+.pagination {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.pagination-numbers {
+    display: flex;
+    gap: 4px;
+}
+
+.pagination-btn,
+.page-number {
+    min-width: 36px;
+    height: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid #e0e4e8;
+    background: white;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 14px;
+    color: #4a5568;
+    transition: all 0.2s ease;
+}
+
+.pagination-btn {
+    padding: 0 12px;
+}
+
+.pagination-btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    background-color: #f8f9fa;
+}
+
+.pagination-btn:not(:disabled):hover,
+.page-number:hover {
+    background-color: #f1f5f9;
+    border-color: #cbd5e0;
+}
+
+.page-number.active {
+    background-color: #4a90e2;
+    color: white;
+    border-color: #4a90e2;
+}
+
+.pagination-dots {
+    display: flex;
+    align-items: center;
+    padding: 0 8px;
+    color: #718096;
+}
+
+.table-info {
+    text-align: left;
+    color: #666;
+    font-size: 0.9em;
+    margin: 10px 0;
+    padding-left: 10px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .container {
+        padding: 16px;
+    }
+
+    .filter-group {
+        flex-direction: column;
+    }
+
+
+    select,
+    .search-wrapper {
+        width: 100%;
+        display: flex;
+    }
+
+    td,
+    th {
+        padding: 12px;
+    }
+
+    .type-badge {
+        padding: 4px 8px;
+    }
+}
+
+
+
+@media (max-width:1050px) {
+
+    .search-wrapper {
+        width: 92%;
+    }
+
+    .search-button {
+        margin-right: 10px;
+    }
+
+}
+
+/* Styles pour les éléments non modifiés */
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+    background: white;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+    gap: 2rem;
+}
+
+.nav-links li {
+    color: #666;
+    cursor: pointer;
+}
+
+.nav-links li.active {
+    color: #2962ff;
+    position: relative;
+}
+
+.nav-links li.active::after {
+    content: '';
+    position: absolute;
+    bottom: -1.5rem;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: #2962ff;
+}
+
+.user-section {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.user-avatar img {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+}
+
+main {
+    padding: 2rem;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+}
+
+.action-buttons {
+    display: flex;
+    gap: 1rem;
+}
+
+.new-transfer,
+.add-credit {
+    padding: 0.75rem 1.5rem;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-weight: 500;
+}
+
+.new-transfer {
+    background: #2962ff;
+    color: white;
+}
+
+.add-credit {
+    background: #4caf50;
+    color: white;
+}
+
+.stats-cards {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1rem;
+    margin-bottom: 2rem;
+}
+
+.stat-card {
+    background: white;
+    padding: 1.5rem;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.advanced-filters {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+}
+
+.status-badge {
+    padding: 0.4rem 0.8rem;
+    border-radius: 4px;
+    font-size: 0.85rem;
+}
+
+.status-badge.completed {
+    background: rgba(76, 175, 80, 0.1);
+    color: #4caf50;
+}
+
+.status-badge.pending {
+    background: rgba(255, 152, 0, 0.1);
+    color: #ff9800;
+}
+
+.status-badge.failed {
+    background: rgba(244, 67, 54, 0.1);
+    color: #f44336;
+}
+
+/* Styles pour la modale */
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 1000;
+    backdrop-filter: blur(5px);
+}
+
+.modal-content {
+    position: relative;
+    background-color: #fff;
+    margin: 10% auto;
+    padding: 0;
+    width: 90%;
+    max-width: 500px;
+    border-radius: 8px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+    animation: modalSlideIn 0.3s ease-out;
+}
+
+@keyframes modalSlideIn {
+    from {
+        transform: translateY(-10%);
+        opacity: 0;
+    }
+
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+.modal-header {
+    padding: 20px;
+    background-color: #f8f9fa;
+    border-bottom: 1px solid #dee2e6;
+    border-radius: 8px 8px 0 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.modal-header h2 {
+    margin: 0;
+    color: #212529;
+    font-size: 1.25rem;
+    font-weight: 600;
+}
+
+.close-modal {
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    color: #6c757d;
+    cursor: pointer;
+    padding: 0;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    transition: background-color 0.2s;
+}
+
+.close-modal:hover {
+    background-color: #e9ecef;
+    color: #343a40;
+}
+
+.modal-body {
+    padding: 20px;
+}
+
+.transaction-detail {
+    padding: 12px 0;
+    border-bottom: 1px solid #e9ecef;
+    display: flex;
+    align-items: center;
+}
+
+.transaction-detail:last-child {
+    border-bottom: none;
+}
+
+.detail-label {
+    width: 120px;
+    color: #6c757d;
+    font-weight: 500;
+}
+
+.detail-value {
+    flex: 1;
+    color: #212529;
+    font-weight: 400;
+}
+
+/* Style spécial pour le montant */
+#modalAmount {
+    font-family: 'Roboto Mono', monospace;
+    font-weight: 500;
+    color: #198754;
+}
+
+
+/* Transactions Section Styles */
+
+
+/*MAIN*/
+
+/*PAGINATION*/
+.pagination-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 20px 0;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    background: var(--light);
+    box-shadow: 4px 4px 16px rgba(0, 0, 0, .05);
+}
+
+.table-info {
+    font-size: 14px;
+}
+
+.pagination {
+    display: flex;
+    align-items: center;
+}
+
+.pagination button,
+.pagination a {
+    margin: 0 5px;
+    padding: 4px 8px;
+    border: none;
+    background-color: var(--light-mbleu);
+    color: white;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: all .3s ease;
+}
+
+
+.pagination a:hover {
+
+    background-color: var(--lght-hbleu);
+
+}
+
+.pagination button[disabled] {
+    background-color: var(--dark-grey);
+}
+
+.current-page {
+    margin: 0 5px;
+    font-weight: bold;
+}
+
+/*PAGINATION*/
+
+.custom-popup-class {
+    font-family: 'Arial', sans-serif;
+    font-size: 16px;
+}
+
+.custom-confirm-button {
+    background-color: var(--blue) !important;
+    border-radius: 5px !important;
+}
+
+.custom-cancel-button {
+    background-color: var(--danger-color) !important;
+    border-radius: 5px !important;
+}
+
+.fl-content {
+    background: var(--light) !important;
+    color: var(--dark) !important;
+
+}

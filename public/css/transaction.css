@@ -1,0 +1,223 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;600;700&display=swap');
+
+* {
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --grey: #f4f3fd;
+    --dark-grey: #b6b6b6;
+    --light: #fff;
+    --dark: #000;
+    --light-blue: #DFF2EB;
+    --light-mbleu: #B9E5E8;
+    --lght-hbleu: #7AB2D3;
+    --blue: #4A628A;
+    --red: #F87A53;
+    --green: #73EC8B;
+    --orange: #FF9D3D;
+    --secondary-color: #3f37c9;
+    --button-chart: #858ba3;
+    --primary-color: #4361ee;
+    --background-color: #f8f9fa;
+    --success-color: #4caf50;
+    --warning-color: #ff9800;
+    --danger-color: #f44336;
+}
+
+
+
+/*MAIN*/
+main {
+    width: 100%;
+    padding: 24px 20px 20px 20px;
+}
+
+main .title {
+    font-size: 24px;
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+
+main .breadcrumbs {
+    display: flex;
+    grid-gap: 6px;
+}
+
+main .breadcrumbs li,
+main .breadcrumbs li a {
+    font-size: 14px;
+}
+
+main .breadcrumbs li a {
+    color: var(--lght-hbleu);
+}
+
+main .breadcrumbs li a.active,
+main .breadcrumbs li a.divider {
+    color: var(--dark-grey);
+    pointer-events: none;
+
+}
+
+main .info-data {
+    margin-top: 36px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 20px;
+}
+
+main .info-data .card {
+    padding: 20px;
+    border-radius: 10px;
+    background: var(--light);
+    box-shadow: 4px 4px 16px rgba(0, 0, 0, .05);
+    transition: transform 0.3s ease;
+}
+
+main .info-data .card:hover {
+    transform: translateY(-5px);
+}
+
+main .card .head i {
+    font-size: 20px;
+    background: var(--light-blue);
+    padding: 8px;
+    border-radius: 8px;
+    margin-bottom: 15px;
+
+}
+
+main .card .head .title_mont {
+    color: var(--dark-grey);
+}
+
+main .card .head .title_monta {
+    color: var(--green);
+}
+
+main .card .head .title_montb {
+    color: var(--orange);
+}
+
+main .card .head .head-section {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+
+main .card .head .head-section .curent-aa {
+    background: var(--orange);
+    padding: 1px 8px 1px 8px;
+    margin-top: 7px;
+    color: var(--light);
+    font-size: 14px;
+    border-radius: 8px;
+
+}
+
+main .card .head .head-section .curent-b {
+    background: var(--green);
+    padding: 1px 8px 1px 8px;
+    margin-top: 7px;
+    color: var(--light);
+    font-size: 14px;
+    border-radius: 8px;
+
+}
+
+main .card .head .count {
+    margin-top: 10px;
+    left: 10px;
+    align-items: center;
+}
+
+main .card .head .count h2 {
+    margin-bottom: 5px;
+}
+
+
+
+main .card .label {
+    font-size: 18px;
+    font-weight: 600;
+
+}
+
+
+select {
+    padding: 10px 16px;
+    border: 1px solid #e0e4e8;
+    border-radius: 6px;
+    font-size: 14px;
+    color: var(--dark-grey);
+    background-color: white;
+    min-width: 170px;
+    appearance: none;
+    background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+    background-repeat: no-repeat;
+    background-position: right 10px center;
+    background-size: 16px;
+    cursor: pointer;
+}
+
+option {
+    color: var(--dark);
+}
+
+/*MAIN*/
+
+/*PAGINATION*/
+.pagination-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 20px 0;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    background: var(--light);
+    box-shadow: 4px 4px 16px rgba(0, 0, 0, .05);
+}
+
+.table-info {
+    font-size: 14px;
+}
+
+.pagination {
+    display: flex;
+    align-items: center;
+}
+
+.pagination button,
+.pagination a {
+    margin: 0 5px;
+    padding: 4px 8px;
+    border: none;
+    background-color: var(--light-mbleu);
+    color: white;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: all .3s ease;
+}
+
+
+.pagination a:hover {
+
+    background-color: var(--lght-hbleu);
+
+}
+
+.pagination button[disabled] {
+    background-color: var(--dark-grey);
+}
+
+.current-page {
+    margin: 0 5px;
+    font-weight: bold;
+}
+
+/*PAGINATION*/
