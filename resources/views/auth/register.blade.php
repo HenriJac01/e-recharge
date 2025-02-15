@@ -143,8 +143,9 @@
         </div>
       </div>
     </div>
-    <script src="{{ asset('js/auth.js') }}"></script>
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+     </body>
+  <script src="{{ asset('js/auth.js') }}"></script>
+ <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
-  </body>
+
 </html>
