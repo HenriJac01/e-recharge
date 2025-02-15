@@ -55,11 +55,11 @@
   <div id="loadingOverlay" class="loading-overlay">
     <div class="loading-spinner"></div>
   </div>-->
-  <script src="{{ asset('js/auth.js') }}"></script>
+</body>
+<script src="{{ asset('js/auth.js') }}"></script>
   <script src="{{ asset('js/loading.js') }}"></script>
   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
   <script>
   </script>
   <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.8.2/dist/alpine.min.js"></script>
-</body>
 </html>
