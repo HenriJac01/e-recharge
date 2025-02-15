@@ -1,3 +1,4 @@
+
 import Swal from 'sweetalert2';
 import './bootstrap';
 
@@ -10,3 +11,4 @@ const Toast = Swal.mixin({
     timerProgressBar: true,
 });
 export default Toast;
+
