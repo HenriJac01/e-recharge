@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>Simulateur USSD</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="{{ asset('css/bootstrap.min.css') }}" />
     <style>
         .phone-screen {
             background: #000;
@@ -64,25 +64,15 @@
                         <button class="btn btn-light keypad-btn" onclick="addDigit('0')">0</button>
                         <button class="btn btn-light keypad-btn" onclick="addDigit('#')">#</button>
                     </div>
-                    <div class="d-flex justify-content-center mt-3">
+                    <div class="d-flex justify-content-center mt-3 py-1">
                         <button class="btn btn-success me-2" onclick="sendUSSD()">Envoyer</button>
                         <button class="btn btn-danger" onclick="clearScreen()">Effacer</button>
                     </div>
                 </div>
-
-                <div class="mt-4">
-                    <h4>Codes USSD disponibles:</h4>
-                    <ul class="list-group">
-                        @foreach ($operators as $operator)
-                            <li class="list-group-item">{{ $operator->name }}: {{ $operator->ussd_code }}</li>
-                        @endforeach
-                    </ul>
-                </div>
             </div>
         </div>
     </div>
-
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="{{asset('js/jquery.min.js')}}"></script>
     <script>
         let currentInput = '';
         let sessionId = null;
