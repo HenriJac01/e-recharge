@@ -13,6 +13,7 @@
   <li><a href="" class="divider">/</a></li>
   <li><a href="" class="active">Client</a></li>
 </ul>
+ <!--fromulaire client-->
 <div class="form-container">
       <div class="form-card">
         <div class="form-header">
@@ -61,7 +62,6 @@
                 type="text"
                 id="cin"
                 name="cin"
-                value="{{ old('cin') }}"
                 required
                 pattern="[0-9]{12}"
                 placeholder="XXXXXXXXXXXX"
@@ -79,7 +79,6 @@
                 id="phone_number"
                 name="phone_number"
                 required
-                value="{{ old('phone_number') }}"
                 pattern="[0-9]{10}"
                 placeholder="0XXXXXXXXX"
                 data-error="Format: 0XXXXXXXXX"
