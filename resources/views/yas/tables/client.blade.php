@@ -69,8 +69,7 @@
           <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">{{ $client->secret_code}}</td>
           <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900" class="amount"> {{ number_format($client['balance']) }} Ar</td>
           <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
-            <a class="action-btn" onclick="">
-            
+            <a class="action-btn" href="{{ route('yas/formes.editClient', $client->id) }}"> 
               <i class="bx bx-edit icon2"></i>
             </a>
             <a href="javascript:void(0);" class="action-btn delete"  data-id="{{$client['id']}}">
