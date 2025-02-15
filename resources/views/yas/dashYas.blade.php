@@ -103,7 +103,7 @@
                             @foreach($recent_transactions as $transaction)
                             <tr>
                                 <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                                    {{ \Carbon\Carbon::parse($transaction['created_at'])->format('Y-m-d H:i:s') }}
+                                    {{ \Carbon\Carbon::parse($transaction['created_at'])->format('d/m/Y H:i') }}
                                 </td>
                                 <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
                                     {{ $transaction['reference'] }}
