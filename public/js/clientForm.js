@@ -7,6 +7,7 @@ document.addEventListener('DOMContentLoaded', function () {
     const prevBtn = document.querySelector('.btn-prev');
     const steps = document.querySelectorAll('.step');
 
+    // Fonction pour formater le numéro de téléphone
     function formatPhoneNumber(input) {
         let value = input.value.replace(/\D/g, '');
         if (value.length > 10) {
@@ -15,6 +16,25 @@ document.addEventListener('DOMContentLoaded', function () {
         input.value = value;
     }
 
+    // Fonction pour formater de code secret
+    function formatCodeNumber(input) {
+        let value = input.value.replace(/\D/g, '');
+        if (value.length > 4) {
+            value = value.slice(0, 4);
+        }
+        input.value = value;
+    }
+
+    // Fonction pour formater le CIN
+    function formatCinNumber(input) {
+        let value = input.value.replace(/\D/g, '');
+        if (value.length > 12) {
+            value = value.slice(0, 12);
+        }
+        input.value = value;
+    }
+
+    // Fonction pour valider l'étape 1
     function validateStep1() {
         const step1Inputs = step1.querySelectorAll('input[required]');
         let isValid = true;
@@ -24,6 +44,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 isValid = false;
                 input.classList.add('error');
 
+                // Afficher message d'erreur
                 let errorDiv = input.nextElementSibling;
                 if (!errorDiv || !errorDiv.classList.contains('error-message')) {
                     errorDiv = document.createElement('div');
@@ -37,34 +58,52 @@ document.addEventListener('DOMContentLoaded', function () {
         return isValid;
     }
 
+    // Navigation entre les étapes
     nextBtn.addEventListener('click', function () {
         if (validateStep1()) {
             step1.style.display = 'none';
             step2.style.display = 'block';
+            steps[1].classList.add('active');
         }
     });
 
     prevBtn.addEventListener('click', function () {
         step2.style.display = 'none';
         step1.style.display = 'block';
+        steps[1].classList.remove('active');
     });
 
+    // Validation des champs
     inputs.forEach(input => {
+        const errorMessage = input.getAttribute('data-error');
+
         input.addEventListener('input', function () {
+            // Formatage spécial pour le téléphone
             if (input.id === 'phone_number') {
                 formatPhoneNumber(input);
             }
 
+            // Formatage spécial pour le code secret
+            if (input.id === 'secret_code') {
+                formatCodeNumber(input);
+            }
+            // Formatage spécial pour le téléphone
+            if (input.id === 'cin') {
+                formatCinNumber(input);
+            }
+
+            // Validation du pattern
             if (input.pattern && !input.value.match(new RegExp(input.pattern))) {
                 input.classList.add('error');
 
+                // Afficher le message d'erreur
                 let errorDiv = input.nextElementSibling;
                 if (!errorDiv || !errorDiv.classList.contains('error-message')) {
                     errorDiv = document.createElement('div');
                     errorDiv.classList.add('error-message');
                     input.parentNode.insertBefore(errorDiv, input.nextSibling);
                 }
-                errorDiv.textContent = input.dataset.error || 'Format invalide';
+                errorDiv.textContent = errorMessage || 'Format invalide';
             } else {
                 input.classList.remove('error');
                 const errorDiv = input.nextElementSibling;
@@ -155,6 +194,5 @@ document.addEventListener('DOMContentLoaded', function () {
                 showNotification('error', error.message);
             });
     });
-
 
 });
