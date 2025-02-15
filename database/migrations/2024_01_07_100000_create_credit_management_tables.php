@@ -87,9 +87,11 @@ return new class extends Migration
             $table->id();
             $table->foreignId('operator_id')->constrained('operators')->onDelete('cascade');
             $table->foreignId('dgi_id')->constrained('dgis')->onDelete('cascade');
+            $table->string('nif','10');
             $table->decimal('chiffre_daffaire', 10, 2);
-            $table->decimal('taxation', 5, 2);
-            $table->decimal('total', 10, 2);
+            $table->decimal('taux', 5, 2);
+            $table->decimal('droit_daccise', 10, 2);
+            $table->boolean('status')->default(false); // false = non imprimé, true = imprimé
             $table->timestamps();
         });
 
