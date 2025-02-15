@@ -6,6 +6,7 @@
     <title>Administration</title>
     @vite('resources/css/app.css') <!-- Inclut le fichier CSS -->
     @yield('style')
+    
     <link
       href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
       rel="stylesheet"
@@ -83,8 +84,8 @@
       </a>
       <ul class="side_dropdown {{ request()->is('yas/tables/*') ? 'show' : '' }}">
       <li><a href="{{ route('yas/tables.client') }}" class="{{ request()->routeIs('yas/tables.client') ? 'active' : '' }}">Client</a></li>
-      <li><a href="" class="">Stock</a></li>
-      <li><a href="" class="">Transmission</a></li>
+      <li><a href="{{ route('yas/tables.stock') }}" class="{{ request()->routeIs('yas/tables.stock') ? 'active' : '' }}">Stock</a></li>
+      <li><a href="{{ route('yas/tables.transmission') }}" class="{{ request()->routeIs('yas/tables.transmission') ? 'active' : '' }}">Transmission</a></li>
       </ul>
     </li>
 
@@ -96,8 +97,7 @@
       </a>
       <ul class="side_dropdown {{ request()->is('yas/formes/*') ? 'show' : '' }}">
       <li><a href="{{ route('yas/formes.client') }}" class="{{ request()->routeIs('yas/formes.client') ? 'active' : '' }}">Client</a></li>
-      <li><a href="" class="">Stock</a></li>
-      <li><a href="" class="">Transmission</a></li>
+      <li><a href="{{ route('yas/formes.transmission') }}" class="{{ request()->routeIs('yas/formes.transmission') ? 'active' : '' }}">Transmission</a></li>
       </ul>
     </li>
 
@@ -141,12 +141,13 @@
             </li>
             <li>
               <a href="{{ url('/logout') }}"
-                ><i class="bx bxs-log-out-circle icon"></i> Déconnexion</a
+              ><i class="bx bxs-log-out-circle icon"></i> Déconnexion</a
               >
             </li>
           </ul>
         </div>
       </nav>
+      <!--NAVBAR-->
       <!--MAIN-->
       <main>
       @yield('content')
@@ -173,7 +174,7 @@
       </main>
       <!--MAIN-->
     </section>
-    <!--NAVBAR-->
+  </body>
     @vite('resources/js/app.js') <!-- Inclut le fichier JavaScript -->
     @push('scripts')
   <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
@@ -184,5 +185,4 @@
   <script>
   document.getElementById('fixedLogo').style.pointerEvents = 'none';
   </script>
-  </body>
 </html>
