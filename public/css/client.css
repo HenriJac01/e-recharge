@@ -743,3 +743,16 @@ main {
     color: var(--dark) !important;
 
 }
+
+.icon4 {
+    font-size: 14px;
+    color: #446b67;
+    transition: transform 0.2s ease, color 0.2s ease;
+}
+
+.icon4:hover {
+    transform: scale(1.2);
+    /* Légère augmentation de la taille au survol */
+    color: #48504f;
+    /* Couleur différente au survol */
+}
