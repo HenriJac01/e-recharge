@@ -1,0 +1,663 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;600;700&display=swap');
+
+* {
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --grey: #f4f3fd;
+    --dark-grey: #b6b6b6;
+    --light: #fff;
+    --dark: #000;
+    --light-blue: #DFF2EB;
+    --light-mbleu: #B9E5E8;
+    --lght-hbleu: #8cc2c4;
+    --blue: #76a9aa;
+    --red: #F87A53;
+    --green: #73EC8B;
+    --orange: #FF9D3D;
+    --secondary-color: #3f37c9;
+    --button-chart: #858ba3;
+    --primary-color: #4361ee;
+    --background-color: #f8f9fa;
+    --success-color: #4caf50;
+    --warning-color: #ff9800;
+    --danger-color: #f44336;
+}
+
+body {
+    background: var(--grey);
+}
+
+html {
+    overflow-x: hidden;
+}
+
+a {
+    text-decoration: none;
+}
+
+li {
+    list-style: none;
+}
+
+/*SIDEBAR*/
+#sidebar {
+    position: fixed;
+    background: var(--light);
+    max-width: 16.25rem;
+    width: 100%;
+    top: 0;
+    left: 10px;
+    height: 97%;
+    overflow-y: auto;
+    scrollbar-width: none;
+    border-bottom-left-radius: 15px;
+    box-shadow: 4px 4px 16px rgba(0, 0, 0, .05);
+    transition: all .3s ease;
+    z-index: 200;
+}
+
+#sidebar.hide {
+    max-width: 60px;
+}
+
+#sidebar.hide:hover {
+    max-width: 16.25rem;
+
+}
+
+#sidebar.hide .side_menu {
+    padding: 0 6px;
+}
+
+#sidebar::-webkit-scrollbar {
+    display: none;
+}
+
+#sidebar .brand {
+    font-size: 24px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 4.6rem;
+    background: var(--blue);
+    position: sticky;
+    top: 0;
+    left: 0;
+    z-index: 100;
+    transition: all .3s ease;
+    padding: 0 6px;
+}
+
+
+#sidebar .logo {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+#sidebar .icon {
+    min-width: 48px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 6px;
+
+}
+
+#sidebar .icon_right {
+    margin-left: auto;
+    transition: all .3s ease;
+
+}
+
+#sidebar .side_menu {
+    margin: 36px 0;
+    padding: 0 20px;
+    transition: all .3s ease;
+}
+
+#sidebar.hide:hover .side_menu {
+    padding: 0 20px;
+}
+
+#sidebar .side_menu a {
+    display: flex;
+    align-items: center;
+    font-size: 14px;
+    color: var(--dark);
+    padding: 12px 16px 12px 0;
+    transition: all .3s ease;
+    border-radius: 10px;
+    margin: 4px 0;
+    white-space: nowrap;
+
+}
+
+#sidebar .side_menu>li>a:hover {
+    background: var(--grey);
+
+}
+
+#sidebar .side_menu>li>a.active .icon_right {
+    transform: rotate(90deg);
+
+}
+
+#sidebar .side_menu a.active {
+    color: #24c3c9;
+    font-size: 14px;
+    transition: all .3s ease;
+
+}
+
+#sidebar .divider {
+    margin-top: 20px;
+    font-size: 12px;
+    text-transform: uppercase;
+    font-weight: 700;
+    color: var(--dark-grey);
+    transition: all .3s ease;
+    white-space: nowrap;
+}
+
+#sidebar.hide .divider {
+    text-align: center;
+}
+
+#sidebar.hide:hover .divider {
+    text-align: left;
+}
+
+/* Style de base pour les sous-menus */
+#sidebar .side_dropdown {
+    padding-left: 40px;
+    max-height: 0;
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+
+#sidebar .side_dropdown.show {
+    max-height: 1000px;
+}
+
+/* Style spécifique pour les éléments du sous-menu */
+#sidebar .side_dropdown a {
+    padding: 10px 15px;
+    margin: 2px 0;
+    border-radius: 8px;
+    font-size: 13px;
+    color: #666;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+}
+
+
+
+
+/* Animation douce pour les transitions */
+#sidebar .side_dropdown a {
+    transform-origin: left;
+    transition: all 0.3s ease;
+}
+
+/* Effet de scale au survol */
+#sidebar .side_dropdown a:hover {
+    transform: translateX(5px);
+}
+
+/*SIDEBAR*/
+
+/*NAVBAR*/
+#content {
+    position: relative;
+    width: calc(100% - 17.65rem);
+    left: 16.875rem;
+    top: 0;
+    right: 100px;
+    transition: all .3s ease;
+}
+
+#sidebar.hide+#content {
+    width: calc(100% - 4.375rem);
+    left: 4.375rem;
+}
+
+
+nav {
+    background: var(--light);
+    height: 4.6rem;
+    padding: 0 20px;
+    display: flex;
+    grid-gap: 20px;
+    align-items: center;
+    border-bottom-right-radius: 15px;
+    position: sticky;
+    top: 0;
+    left: 0;
+    z-index: 100;
+    box-shadow: 4px 4px 16px rgba(0, 0, 0, .05);
+}
+
+nav .toggle_sidebar {
+    font-size: 20px;
+    cursor: pointer;
+
+}
+
+nav form {
+    max-width: 250px;
+    width: 100%;
+    margin-right: auto;
+}
+
+nav .from-group {
+    position: relative;
+
+}
+
+nav .from-group input {
+    width: 100%;
+    background: var(--grey);
+    border: none;
+    outline: none;
+    padding: 10px 36px 10px 16px;
+    border-radius: 5px;
+    transition: all .3s ease;
+    /* margin-left: 20rem;*/
+}
+
+nav .from-group input:focus {
+    box-shadow: 0 0 0 1px var(--blue), 0 0 0 4px var(--light-mbleu);
+}
+
+nav .from-group .icon {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    right: 10px;
+    color: var(--dark-grey);
+    /* right: -310px;*/
+
+
+}
+
+nav .nav_link {
+    position: relative;
+}
+
+nav .nav_link .icon {
+    font-size: 21px;
+    color: var(--dark);
+
+}
+
+nav .nav_link .badge {
+    position: absolute;
+    top: -12px;
+    right: -12px;
+    background: var(--red);
+    border-radius: 50%;
+    border: 2px solid var(--light);
+    display: flex;
+    width: 23px;
+    height: 23px;
+    justify-content: center;
+    align-items: center;
+    font-size: 10px;
+    font-weight: 700;
+    color: var(--light);
+}
+
+nav .divider {
+    width: 1px;
+    background: var(--dark-grey);
+    height: 12px;
+    display: block;
+}
+
+
+nav .profile {
+    position: relative;
+}
+
+nav .profile img {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    object-fit: cover;
+    cursor: pointer;
+}
+
+nav .profile .profile_link {
+    position: absolute;
+    top: calc(100% + 10px);
+    right: 0;
+    background: var(--light);
+    padding: 20px 0;
+    box-shadow: 4px 4px 16px rgba(0, 0, 0, .1);
+    width: 160px;
+    border-radius: 10px;
+    opacity: 0;
+    pointer-events: none;
+    transition: all .3s ease;
+
+}
+
+nav .profile .profile_link.show {
+    opacity: 1;
+    pointer-events: visible;
+    top: 100%;
+}
+
+nav .profile .profile_link a {
+    padding: 10px 16px;
+    display: flex;
+    grid-gap: 10px;
+    font-size: 14px;
+    color: var(--dark);
+    transition: all .3s ease;
+}
+
+nav .profile .profile_link a:hover {
+    background: var(--grey);
+}
+
+/*NAVBAR*/
+
+/*MAIN*/
+main {
+    width: 100%;
+    padding: 24px 20px 20px 20px;
+}
+
+main .title {
+    font-size: 24px;
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+
+main .breadcrumbs {
+    display: flex;
+    grid-gap: 6px;
+}
+
+main .breadcrumbs li,
+main .breadcrumbs li a {
+    font-size: 14px;
+}
+
+main .breadcrumbs li a {
+    color: var(--lght-hbleu);
+}
+
+main .breadcrumbs li a.active,
+main .breadcrumbs li a.divider {
+    color: var(--dark-grey);
+    pointer-events: none;
+
+}
+
+/*MAIN*/
+
+/*Contenu dashboard*/
+.dashboard-container {
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+
+}
+
+.main-content {
+    display: flex;
+    gap: 20px;
+    width: 100%;
+    max-width: 1200px;
+    flex-wrap: wrap;
+}
+
+.operator-column,
+.chart-column,
+.right-column {
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    padding: 15px;
+    height: 350px;
+}
+
+.operator-column {
+    width: 25%;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.operator-card {
+    display: flex;
+    align-items: center;
+    padding: 24px;
+    background-color: #f4f6f9;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    /* Animation douce pour les transitions */
+}
+
+.operator-card:hover {
+    background-color: #e2e6eb;
+    /* Changement de couleur de fond */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    /* Augmentation de l'ombre */
+    transform: translateY(-2px);
+    /* Légère élévation */
+}
+
+
+.operator-logo {
+    width: 40px;
+    height: 40px;
+    object-fit: cover;
+    margin-right: 10px;
+    border-radius: 50%;
+}
+
+.operator-info {
+    text-align: left;
+}
+
+.operator-name {
+    font-size: 14px;
+}
+
+.operator-revenue {
+    font-size: 16px;
+    font-weight: bold;
+    color: #557763;
+}
+
+.chart-column {
+    width: 50%;
+}
+
+.right-column {
+    width: 25%;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.card-a,
+.card-b {
+    padding: 50px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    /* Animation douce */
+}
+
+.card-a {
+    border: 2px solid #2ab39c;
+}
+
+.card-a:hover {
+    background-color: #e8f9f5;
+    /* Changement de couleur de fond au survol */
+    box-shadow: 0 4px 8px rgba(42, 179, 156, 0.3);
+    /* Accentuation de l'ombre */
+    transform: translateY(-4px);
+    /* Légère élévation */
+}
+
+.card-b {
+    border: 2px solid #b3aa2a;
+}
+
+.card-b:hover {
+    background-color: #f9f7e8;
+    /* Changement de couleur de fond au survol */
+    box-shadow: 0 4px 8px rgba(179, 170, 42, 0.3);
+    /* Accentuation de l'ombre */
+    transform: translateY(-4px);
+    /* Légère élévation */
+}
+
+
+.card h3 {
+    font-size: 16px;
+    margin-bottom: 10px;
+}
+
+.card p {
+    font-size: 18px;
+    font-weight: bold;
+    color: #333;
+}
+
+.chart-card {
+    background: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 45%;
+}
+
+
+
+/* Graphiques */
+.charts-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+    gap: 20px;
+}
+
+.charts-card {
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    text-align: center;
+}
+
+/* Responsive Design */
+@media (max-width: 1200px) {
+
+    .operator-column,
+    .chart-column,
+    .right-column {
+        width: 100%;
+        height: auto;
+    }
+
+    .operator-column {
+        margin-bottom: 20px;
+    }
+
+    .operator-column,
+    .chart-column,
+    .right-column {
+        width: 100%;
+        height: auto;
+        /* Remove fixed height on smaller screens */
+    }
+}
+
+@media (max-width: 768px) {
+    .operator-column {
+        width: 100%;
+    }
+
+    .chart-column {
+        width: 100%;
+    }
+
+    .right-column {
+        width: 100%;
+    }
+
+    .card,
+    .operator-card {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .chart-card {
+        max-width: 100%;
+    }
+
+    .chart-column {
+        width: 100%;
+    }
+
+    #bar-chart {
+        max-width: 100%;
+        height: 250px;
+        /* Smaller height for mobile */
+    }
+}
+
+@media (max-width: 480px) {
+    .operator-card {
+        font-size: 14px;
+    }
+
+    .operator-logo {
+        width: 30px;
+        height: 30px;
+    }
+}
+
+
+/*RESPONSIVE*/
+@media screen and (max-width:768px) {
+    #content {
+        position: relative;
+        width: calc(100% - 4.375rem);
+        transition: all .3s ease;
+    }
+
+    nav .nav_link,
+    nav .divider {
+        display: none;
+    }
+}
+
+/* Style pour l'élément actif */
+.side_menu li.active>a {
+    background-color: var(--lght-hbleu) !important;
+    color: white !important;
+}
+
+/* Si un sous-menu est actif, afficher la classe .show */
+.side_menu li.has-dropdown.active>.side_dropdown {
+    display: block !important;
+    /* Forcer l'affichage du sous-menu */
+    max-height: 1000px !important;
+    /* Ajuster la taille du sous-menu */
+}
