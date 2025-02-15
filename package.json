@@ -10,6 +10,7 @@
         "vite": "^4.0.0"
     },
     "dependencies": {
+        "@fortawesome/fontawesome-free": "^6.7.2",
         "autoprefixer": "^10.4.20",
         "postcss": "^8.4.49",
         "sweetalert2": "^11.15.0",
