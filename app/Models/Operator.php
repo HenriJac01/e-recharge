@@ -2,10 +2,11 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Factories\HasFactory;
 use App\Models\Stock;
 use App\Models\Transaction;
+use App\Models\Transmission;
+use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Operator extends Model
 {
@@ -30,4 +31,11 @@ class Operator extends Model
     {
         return $this->belongsTo(Client::class);
     }
+
+    public function transmits()
+    {
+        return $this->hasMany(Transmission::class);
+    }
+
+
 }
