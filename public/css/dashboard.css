@@ -416,6 +416,11 @@ main .info-data .card {
     border-radius: 10px;
     background: var(--light);
     box-shadow: 4px 4px 16px rgba(0, 0, 0, .05);
+    transition: transform 0.3s ease;
+}
+
+main .info-data .card:hover {
+    transform: translateY(-5px);
 }
 
 main .card .head i {
